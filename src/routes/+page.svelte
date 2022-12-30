@@ -1,5 +1,5 @@
 <script>
-	import inView from 'in-view';
+	// import inView from 'in-view';
 	import SausageDog from '$lib/assets/animals/sausage-dog.svg?component';
 	import { Accordion, AccordionItem } from 'svelte-collapsible';
 	import { onMount } from 'svelte';
@@ -468,35 +468,35 @@
 	const easing = 'ease';
 
 	let y = 0;
-	$: if (y) {
-		console.log('LS -> src/routes/+page.svelte:470 -> y: ', y);
-		inView.offset(200);
-		const visibleListItems = Array.from(
-			document.getElementsByClassName('list-item'),
-		).map(inView.is);
-		console.log(
-			'LS -> src/routes/+page.svelte:476 -> visibleListItems: ',
-			visibleListItems,
-		);
-		if (clickedKey > -1) {
-			console.log(
-				'LS -> src/routes/+page.svelte:473 -> clickedKey: ',
-				clickedKey,
-			);
-			key = clickedKey;
-			clickedKey = -1;
-			const lastVisible = visibleListItems.lastIndexOf(true);
-			console.log(
-				'LS -> src/routes/+page.svelte:484 -> lastVisible: ',
-				lastVisible,
-			);
-		} else {
-			const topMostVisible = visibleListItems.indexOf(true);
-			if (topMostVisible !== key) {
-				key = topMostVisible;
-			}
-		}
-	}
+	// $: if (y) {
+	// 	console.log('LS -> src/routes/+page.svelte:470 -> y: ', y);
+	// 	inView.offset(200);
+	// 	const visibleListItems = Array.from(
+	// 		document.getElementsByClassName('list-item'),
+	// 	).map(inView.is);
+	// 	console.log(
+	// 		'LS -> src/routes/+page.svelte:476 -> visibleListItems: ',
+	// 		visibleListItems,
+	// 	);
+	// 	if (clickedKey > -1) {
+	// 		console.log(
+	// 			'LS -> src/routes/+page.svelte:473 -> clickedKey: ',
+	// 			clickedKey,
+	// 		);
+	// 		key = clickedKey;
+	// 		clickedKey = -1;
+	// 		const lastVisible = visibleListItems.lastIndexOf(true);
+	// 		console.log(
+	// 			'LS -> src/routes/+page.svelte:484 -> lastVisible: ',
+	// 			lastVisible,
+	// 		);
+	// 	} else {
+	// 		const topMostVisible = visibleListItems.indexOf(true);
+	// 		if (topMostVisible !== key) {
+	// 			key = topMostVisible;
+	// 		}
+	// 	}
+	// }
 </script>
 
 <svelte:window bind:scrollY={y} />
