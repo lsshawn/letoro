@@ -1,5 +1,5 @@
 <script>
-	import inView from 'in-view';
+	import { inview } from 'svelte-inview';
 	import SausageDog from '$lib/assets/animals/sausage-dog.svg?component';
 	import { Accordion, AccordionItem } from 'svelte-collapsible';
 	import { onMount } from 'svelte';
@@ -467,36 +467,37 @@
 	const duration = 0.5;
 	const easing = 'ease';
 
+	let start;
+	let end;
 	let y = 0;
-	$: if (y) {
-		console.log('LS -> src/routes/+page.svelte:470 -> y: ', y);
-		inView.offset(200);
-		const visibleListItems = Array.from(
-			document.getElementsByClassName('list-item'),
-		).map(inView.is);
-		console.log(
-			'LS -> src/routes/+page.svelte:476 -> visibleListItems: ',
-			visibleListItems,
-		);
-		if (clickedKey > -1) {
-			console.log(
-				'LS -> src/routes/+page.svelte:473 -> clickedKey: ',
-				clickedKey,
-			);
-			key = clickedKey;
-			clickedKey = -1;
-			const lastVisible = visibleListItems.lastIndexOf(true);
-			console.log(
-				'LS -> src/routes/+page.svelte:484 -> lastVisible: ',
-				lastVisible,
-			);
-		} else {
-			const topMostVisible = visibleListItems.indexOf(true);
-			if (topMostVisible !== key) {
-				key = topMostVisible;
-			}
-		}
-	}
+	// $: if (y) {
+	// 	console.log('LS -> src/routes/+page.svelte:470 -> y: ', y);
+	// 	const visibleListItems = Array.from(
+	// 		document.getElementsByClassName('list-item'),
+	// 	).map(inview.is);
+	// 	console.log(
+	// 		'LS -> src/routes/+page.svelte:476 -> visibleListItems: ',
+	// 		visibleListItems,
+	// 	);
+	// 	if (clickedKey > -1) {
+	// 		console.log(
+	// 			'LS -> src/routes/+page.svelte:473 -> clickedKey: ',
+	// 			clickedKey,
+	// 		);
+	// 		key = clickedKey;
+	// 		clickedKey = -1;
+	// 		const lastVisible = visibleListItems.lastIndexOf(true);
+	// 		console.log(
+	// 			'LS -> src/routes/+page.svelte:484 -> lastVisible: ',
+	// 			lastVisible,
+	// 		);
+	// 	} else {
+	// 		const topMostVisible = visibleListItems.indexOf(true);
+	// 		if (topMostVisible !== key) {
+	// 			key = topMostVisible;
+	// 		}
+	// 	}
+	// }
 </script>
 
 <svelte:window bind:scrollY={y} />
@@ -504,6 +505,11 @@
 <div
 	class="p-4"
 	id="list-items"
+	use:inview
+	on:change={(event) => {
+		const { inView, entry, scrollDirection, observer, node } = event.detail;
+		console.log('LS -> src/routes/+page.svelte:510 -> inView: ', inView);
+	}}
 >
 	<Accordion
 		bind:key
@@ -525,7 +531,7 @@
 						<div class="flex gap-4 text-xl align-baseline font-bold">
 							<SausageDog
 								width={key === i ? 50 : 25}
-								class="fill-white"
+								class="fill-gray-800"
 							/>
 							<div class:text-5xl={key === i}>
 								{dog}

@@ -12,7 +12,7 @@
 				href="/"
 			>
 				<Logo
-					class="fill-white"
+					class="fill-gray-800"
 					width="200"
 				/>
 			</a>
