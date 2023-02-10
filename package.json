@@ -45,6 +45,5 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"in-view": "^0.6.1"
 	}
 }

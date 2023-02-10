@@ -1,5 +1,14 @@
 # create-svelte
 
+# Domain
+
+https://letorogrooming.com.my/
+
+# Inspiration
+
+- https://www.haritos.co/
+- https://www.humanastudio.com/
+
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
 ## Creating a project
