@@ -37,7 +37,7 @@
 
 <section id="hero">
 	<div
-		class="hero min-h-[50vh] lg:min-h-screen place-items-start bg-bottom"
+		class="hero min-h-[80vh] lg:min-h-screen place-items-start bg-bottom"
 		style="background-image: url(hero-dog.jpg);"
 	>
 		<div class="hero-overlay bg-opacity-80" />
@@ -58,7 +58,7 @@
 
 <section id="dog">
 	<div
-		class="hero min-h-[50vh]  bg-[left_-20px] bg-no-repeat"
+		class="hero min-h-[80vh]  bg-[left_-20px] bg-no-repeat"
 		style="background-image: url(section1-side.jpg);"
 	>
 		<div class="hero-overlay" />
@@ -93,7 +93,7 @@
 
 <section id="cat">
 	<div
-		class="hero min-h-[50vh] bg-right bg-no-repeat bg-auto"
+		class="hero min-h-[80vh] bg-right bg-no-repeat bg-auto"
 		style="background-image: url(cat-black-left.jpg);"
 	>
 		<div class="hero-overlay" />
@@ -113,7 +113,7 @@
 
 <section id="small-animal">
 	<div
-		class="hero min-h-[50vh] bg-[left_-20px]"
+		class="hero min-h-[80vh] bg-[left_-20px]"
 		style="background-image: url(guinea-pig-black.jpg);"
 	>
 		<div class="hero-overlay" />
@@ -131,7 +131,7 @@
 
 <section id="boarding">
 	<div
-		class="hero min-h-[50vh] place-items-start bg-left"
+		class="hero min-h-[80vh] place-items-start bg-left"
 		style="background-image: url(dog-sleep.jpg);"
 	>
 		<div class="hero-content items-start text-left text-neutral-content">
@@ -148,7 +148,7 @@
 
 <section id="shop">
 	<div
-		class="hero min-h-[50vh] place-items-start bg-contain bg-no-repeat bg-[#161616] bg-bottom"
+		class="hero min-h-[80vh] place-items-start bg-contain bg-no-repeat bg-[#161616] bg-bottom"
 		style="background-image: url(dog-high-contrast-no-pattern.jpg);"
 	>
 		<!-- <div class="hero-overlay bg-opacity-50" /> -->
@@ -165,7 +165,7 @@
 </section>
 
 <section id="map">
-	<div class="hero min-h-[50vh] place-items-start bg-contain bg-no-repeat bg-[#161616] bg-bottom">
+	<div class="hero min-h-[80vh] place-items-start bg-contain bg-no-repeat bg-[#161616] bg-bottom">
 		<!-- <div class="hero-overlay bg-opacity-50" /> -->
 		<div class="hero-content items-center text-neutral-content w-full">
 			<div class="max-w-md">
