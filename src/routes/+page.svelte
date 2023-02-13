@@ -77,6 +77,20 @@
 	</div>
 </section>
 
+<section id="about">
+	<div class="hero min-h-[30vh] bg-[#161616]">
+		<div class="hero-content">
+			<div class="max-w-xl">
+				<p class="mb-5 text-4xl ">Established in 2010.</p>
+				<p class="mb-5 text-xl ">
+					Expert groomer with over a decade of experience. We only use high quality products. We
+					work on an appointment only basis. This keeps the salon as stress free as possible.
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+
 <section id="cat">
 	<div
 		class="hero min-h-[50vh] bg-right bg-no-repeat bg-auto"
