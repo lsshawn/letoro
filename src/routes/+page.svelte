@@ -164,6 +164,11 @@
 	</div>
 </section>
 
+<section class=" bg-[#161616] py-8 pl-4">
+	<h1 class="text-xl">Our latest customers</h1>
+	<HorizontalCards images={dogImages} />
+</section>
+
 <section id="map">
 	<div class="hero min-h-[80vh] place-items-start bg-contain bg-no-repeat bg-[#161616] bg-bottom">
 		<!-- <div class="hero-overlay bg-opacity-50" /> -->
