@@ -70,7 +70,7 @@
 						Experienced groomers in providing relaxing grooming experienced for canines of all
 						breeds and ages
 					</p>
-					<HorizontalCards images={dogImages} />
+					<!-- <HorizontalCards images={dogImages} /> -->
 				</div>
 			</div>
 		</div>
@@ -104,7 +104,7 @@
 					<p class="mb-5 text-xl max-w-sm" style="text-shadow: 2px 2px 5px #121212">
 						Professional grooming services for felines in low-stress environment.
 					</p>
-					<HorizontalCards images={dogImages} />
+					<!-- <HorizontalCards images={dogImages} /> -->
 				</div>
 			</div>
 		</div>
@@ -122,7 +122,7 @@
 				<div class="max-w-md">
 					<h1 class="mb-5 text-4xl" style="text-shadow: 2px 2px 5px #121212">Small Animal</h1>
 					<p class="mb-5 text-xl">Gentle handling and grooming services for small animals.</p>
-					<HorizontalCards images={dogImages} />
+					<!-- <HorizontalCards images={dogImages} /> -->
 				</div>
 			</div>
 		</div>
