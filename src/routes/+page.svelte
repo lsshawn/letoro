@@ -1,5 +1,7 @@
 <script lang="ts">
+	import AOS from 'aos';
 	import HorizontalCards from '$lib/components/HorizontalCards.svelte';
+	import { onMount } from 'svelte';
 	const dogImages = [
 		'dogs/dog.jpg',
 		'dogs/dog.jpg',
@@ -9,6 +11,10 @@
 		'dogs/dog.jpg',
 		'dogs/dog.jpg'
 	];
+
+	onMount(() => {
+		AOS.init();
+	});
 
 	const locations = [
 		{
@@ -38,6 +44,10 @@
 	];
 </script>
 
+<svelte:head>
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</svelte:head>
+
 <section id="hero">
 	<div
 		class="hero min-h-[80vh] lg:min-h-screen place-items-start bg-bottom"
@@ -45,7 +55,7 @@
 	>
 		<div class="hero-overlay bg-opacity-80" />
 		<div class="hero-content items-start text-left text-neutral-content pr-0 min-w-full pt-[5rem]">
-			<div class="w-full pb-4" style="text-shadow: 0 0 20px #000;">
+			<div class="w-full pb-4" style="text-shadow: 0 0 20px #000;" data-aos="fade-in">
 				<h1 class="mb-5 text-6xl ">Premium Pet Services</h1>
 				<p class="mb-12 text-2xl max-w-md" style="text-shadow: 2px 2px 5px #121212">
 					We provide professional grooming service for your pets in a calm environment.
@@ -76,7 +86,7 @@
 		<div class="hero-overlay" />
 		<div class="hero-content items-start text-left text-neutral-content p-0 justify-end w-full">
 			<div class="pl-4 pr-0">
-				<div class="max-w-md">
+				<div class="max-w-md" data-aos="fade-left">
 					<h1 class="mb-5 text-4xl" style="text-shadow: 2px 2px 5px #121212">Dog Grooming</h1>
 					<p class="mb-5 text-xl max-w-sm" style="text-shadow: 2px 2px 5px #121212">
 						Experienced groomers in providing relaxing grooming experienced for canines of all
@@ -89,7 +99,7 @@
 	</div>
 </section>
 
-<section id="about">
+<section id="about" data-aos="zoom-out">
 	<div class="hero min-h-[30vh] bg-[#161616]">
 		<div class="hero-content">
 			<div class="max-w-xl">
@@ -105,13 +115,13 @@
 
 <section id="cat">
 	<div
-		class="hero min-h-[80vh] bg-right bg-no-repeat bg-auto"
+		class="hero min-h-[80vh] bg-center bg-no-repeat bg-auto"
 		style="background-image: url(cat-black-left.jpg);"
 	>
 		<div class="hero-overlay" />
 		<div class="hero-content items-start text-left text-neutral-content p-0 justify-end w-full">
 			<div class="pl-4 pr-0">
-				<div class="max-w-md">
+				<div class="max-w-md" data-aos="fade-left">
 					<h1 class="mb-5 text-4xl" style="text-shadow: 2px 2px 5px #121212">Cat Grooming</h1>
 					<p class="mb-5 text-xl max-w-sm" style="text-shadow: 2px 2px 5px #121212">
 						Professional grooming services for felines in low-stress environment.
@@ -131,7 +141,7 @@
 		<div class="hero-overlay" />
 		<div class="hero-content items-start text-left text-neutral-content p-0 justify-end w-full">
 			<div class="pl-4 pr-0">
-				<div class="max-w-md">
+				<div class="max-w-md" data-aos="fade-left">
 					<h1 class="mb-5 text-4xl" style="text-shadow: 2px 2px 5px #121212">Small Animal</h1>
 					<p class="mb-5 text-xl">Gentle handling and grooming services for small animals.</p>
 					<!-- <HorizontalCards images={dogImages} /> -->
@@ -147,7 +157,7 @@
 		style="background-image: url(dog-sleep.jpg);"
 	>
 		<div class="hero-content items-start text-left text-neutral-content">
-			<div class="max-w-md">
+			<div class="max-w-md" data-aos="fade-right" data-aos-duration="700">
 				<h1 class="mb-5 text-4xl" style="text-shadow: 2px 2px 5px #121212">Cageless Pet Hotel</h1>
 				<p class="mb-5 text-xl max-w-sm" style="text-shadow: 2px 2px 5px #121212">
 					Our dog daycare and boarding is cage-free. Cat and small animal boarding is available by
@@ -165,7 +175,7 @@
 	>
 		<!-- <div class="hero-overlay bg-opacity-50" /> -->
 		<div class="hero-content items-center text-center text-neutral-content w-full">
-			<div class="max-w-md">
+			<div class="max-w-md" data-aos="fade-in">
 				<h1 class="mb-5 text-4xl">Visit our Shopee store</h1>
 				<p class="mb-5 text-xl max-w-sm" style="text-shadow: 2px 2px 5px #121212">
 					For premium pet food and accessories
@@ -187,7 +197,11 @@
 		<div class="hero-content items-center text-neutral-content w-full">
 			<div class="max-w-md">
 				<h1 class="mb-5 text-4xl">Visit Us</h1>
-				<p class="mb-5 text-xl max-w-sm text-white" style="text-shadow: 2px 2px 5px #121212">
+				<p
+					class="mb-5 text-xl max-w-sm text-white"
+					style="text-shadow: 2px 2px 5px #121212"
+					data-aos="fade-in"
+				>
 					{#each locations as location}
 						<div class="prose mb-8">
 							<div>{location.title}</div>
@@ -207,7 +221,7 @@
 						</div>
 					{/each}
 				</p>
-				<div class="max-w-md">
+				<div class="max-w-md" data-aos="fade-in">
 					<h1 class="mb-5 text-4xl">Follow Us</h1>
 					<p class="mb-5 text-xl max-w-sm" style="text-shadow: 2px 2px 5px #121212">
 						<a href="http://www.facebook.com/letorogrooming" target="_blank">
