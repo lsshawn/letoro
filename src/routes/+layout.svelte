@@ -19,7 +19,8 @@
 <!-- </div> -->
 <div class="navbar" style="background-color:#161516">
 	<div class="navbar-start" />
-	<Logo class="fill-white" width="150" />
+	<Logo class="w-[200px] md:w-[500px] fill-white" />
+
 	<div class="navbar-end" />
 </div>
 <slot />

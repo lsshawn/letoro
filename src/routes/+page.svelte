@@ -2,15 +2,6 @@
 	import AOS from 'aos';
 	import Gallery from 'svelte-image-gallery';
 	import { onMount } from 'svelte';
-	const dogImages = [
-		'dogs/dog.jpg',
-		'dogs/dog.jpg',
-		'dogs/dog.jpg',
-		'dogs/dog.jpg',
-		'dogs/dog.jpg',
-		'dogs/dog.jpg',
-		'dogs/dog.jpg'
-	];
 
 	onMount(() => {
 		AOS.init();
@@ -50,17 +41,20 @@
 
 <section id="hero">
 	<div
-		class="hero min-h-[60vh] lg:min-h-screen place-items-start bg-bottom"
+		class="hero min-h-[60vh] md:min-h-screen place-items-start bg-bottom bg-[#161516] bg-cover md:bg-contain bg-no-repeat bg-right"
 		style="background-image: url(hero-dog.jpg);"
 	>
 		<div class="hero-overlay bg-opacity-80" />
-		<div class="hero-content items-start text-left text-neutral-content pr-0 min-w-full pt-[5rem]">
+		<div
+			class="hero-content items-start md:items-center text-left text-neutral-content pr-0 min-w-full pt-[5rem] md:pt-[30vh] md:pl-[10rem]"
+		>
 			<div class="w-full pb-4" style="text-shadow: 0 0 20px #000;" data-aos="fade-in">
 				<h1 class="mb-5 text-6xl ">Premium Pet Services</h1>
-				<p class="mb-12 text-2xl max-w-md" style="text-shadow: 2px 2px 5px #121212">
+				<p class="mb-5 text-2xl max-w-md" style="text-shadow: 2px 2px 5px #121212">
 					We provide professional grooming service for your pets in a calm environment.
 				</p>
-				<div class="dropdown">
+				<p class="text-2xl mt-8">Grooming | Boarding | Spa | Dental Scaling</p>
+				<div class="dropdown mt-12">
 					<label tabindex="0" class="btn btn-primary">Book via Whatsapp</label>
 					<ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
 						{#each locations as location}
@@ -80,7 +74,7 @@
 
 <section id="dog">
 	<div
-		class="hero min-h-[40vh]  bg-left bg-no-repeat"
+		class="hero min-h-[40vh] md:min-h-[100vh] bg-left bg-no-repeat"
 		style="background-image: url(section1-side.jpg);"
 	>
 		<div class="hero-overlay" />
@@ -89,7 +83,7 @@
 				<div class="max-w-md" data-aos="fade-left">
 					<h1 class="mb-5 text-4xl" style="text-shadow: 2px 2px 5px #121212">Dog Grooming</h1>
 					<hr class="short-divider" />
-					<p class="mb-5 text-xl max-w-sm" style="text-shadow: 2px 2px 5px #121212">
+					<p class="mb-5 text-xl max-w-sm md:max-w-md" style="text-shadow: 2px 2px 5px #121212">
 						Experienced groomers in providing relaxing grooming experienced for canines of all
 						breeds and ages
 					</p>
@@ -100,9 +94,9 @@
 	</div>
 </section>
 
-<section id="about" data-aos="zoom-out">
+<section id="about">
 	<div
-		class="hero min-h-[30vh] bg-[#161616]"
+		class="hero min-h-[30vh] md:min-h-[60vh] bg-[#0e0e0e]"
 		style="background-image: url(paw-patterns.png);
 	background-blend-mode: soft-light;
 	background-repeat: no-repeat;
@@ -110,8 +104,14 @@
 	background-position: right;
   "
 	>
-		<div class="hero-content">
-			<div class="max-w-xl">
+		<div class="hero-content flex flex-col md:flex-row gap-10">
+			<img
+				src="shop.jpg"
+				alt="letoro shop"
+				class="max-w-md shadow-2xl rounded-sm border-4 border-primary"
+			/>
+
+			<div class="max-w-xl text-center md:text-left">
 				<p class="mb-5 text-4xl ">Established in 2010.</p>
 				<p class="mb-5 text-xl ">
 					Expert groomer with over a decade of experience. We only use high quality products. We
@@ -123,14 +123,17 @@
 </section>
 
 <section id="cat">
-	<div class="hero min-h-[40vh]" style="background-image: url(cat-black-left.jpg);">
+	<div
+		class="hero min-h-[40vh] md:min-h-[100vh] bg-no-repeat bg-contain bg-left bg-[#100b0b]"
+		style="background-image: url(cat-black-left.jpg);"
+	>
 		<div class="hero-overlay" />
 		<div class="hero-content items-start text-left text-neutral-content p-0 justify-end w-full">
 			<div class="pl-4 pr-0">
 				<div class="max-w-md" data-aos="fade-left">
 					<h1 class="mb-5 text-4xl" style="text-shadow: 2px 2px 5px #121212">Cat Grooming</h1>
 					<hr class="short-divider" />
-					<p class="mb-5 text-xl max-w-sm" style="text-shadow: 2px 2px 5px #121212">
+					<p class="mb-5 text-xl max-w-sm md:max-w-md" style="text-shadow: 2px 2px 5px #121212">
 						Professional grooming services for felines in low-stress environment.
 					</p>
 					<!-- <HorizontalCards images={dogImages} /> -->
@@ -142,8 +145,8 @@
 
 <section id="small-animal">
 	<div
-		class="hero min-h-[40vh] bg-[left_-20px]"
-		style="background-image: url(guinea-pig-black.jpg);"
+		class="hero min-h-[40vh] bg-[-80px -20px] md:min-h-[100vh]"
+		style="background-image: linear-gradient(to top, rgb(0 0 0) 0%, rgb(0 0 0 / 16%) 50%, rgba(0, 0, 0, 0) 100%), url(guinea-pig-black.jpg)"
 	>
 		<div class="hero-overlay" />
 		<div class="hero-content items-start text-left text-neutral-content p-0 justify-end w-full">
@@ -151,7 +154,7 @@
 				<div class="max-w-md" data-aos="fade-left">
 					<h1 class="mb-5 text-4xl" style="text-shadow: 2px 2px 5px #121212">Small Animal</h1>
 					<hr class="short-divider" />
-					<p class="mb-5 text-xl max-w-sm">
+					<p class="mb-5 text-xl max-w-sm md:max-w-md">
 						Gentle handling and grooming services for small animals.
 					</p>
 					<!-- <HorizontalCards images={dogImages} /> -->
@@ -163,16 +166,25 @@
 
 <section id="boarding">
 	<div
-		class="hero min-h-[80vh] place-items-start bg-left"
+		class="hero min-h-[40vh] md:min-h-[80vh] place-items-start bg-[100px] bg-no-repeat md:bg-contain md:bg-right bg-[#161313] bg-contain"
 		style="background-image: url(dog-sleep.jpg);"
 	>
-		<div class="hero-content items-start text-left text-neutral-content">
+		<div
+			class="hero-content items-start text-left text-neutral-content pt-8 md:pt-[10vh] md:pl-[10rem]"
+		>
 			<div class="max-w-md" data-aos="fade-right" data-aos-duration="700">
 				<h1 class="mb-5 text-4xl" style="text-shadow: 2px 2px 5px #121212">Cageless Pet Hotel</h1>
 				<p class="mb-5 text-xl max-w-sm" style="text-shadow: 2px 2px 5px #121212">
 					Our dog daycare and boarding is cage-free. Cat and small animal boarding is available by
 					booking.
 				</p>
+				<div class="relative max-w-sm rounded-lg shadow-2xl hidden md:block">
+					<div
+						class="absolute inset-0"
+						style="background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);"
+					/>
+					<img src="boarding.jpg" alt="cageless boarding" class="w-full" />
+				</div>
 			</div>
 		</div>
 	</div>
@@ -180,73 +192,85 @@
 
 <section id="shop">
 	<div
-		class="hero min-h-[50vh] bg-cover bg-no-repeat bg-[#161616] bg-bottom"
+		class="hero min-h-[50vh] md:min-h-[80vh] bg-cover bg-no-repeat bg-[#161616] bg-bottom"
 		style="background-image: url(shopee-products.png);"
 	>
 		<!-- <div class="hero-overlay bg-opacity-50" /> -->
 		<div class="hero-content items-center text-center text-neutral-content w-full">
 			<div class="max-w-md card" data-aos="fade-in">
-				<div class="card-body bg-neutral/80 rounded-md">
+				<div class="card-body bg-neutral/90 rounded-md">
 					<h1 class="mb-5 text-4xl">Visit our Shopee store</h1>
 					<p class="mb-5 text-xl max-w-sm" style="text-shadow: 2px 2px 5px #121212">
 						For premium pet food and accessories
 					</p>
-					<button class="btn btn-primary">Shop now</button>
+					<a
+						href="https://shopee.com.my/letorogrooming.appt"
+						rel="noreferrer"
+						target="_blank"
+						class="btn btn-primary">Visit Shopee</a
+					>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
 
-<section class=" bg-[#161616] py-8 pl-4">
-	<h1 class="text-xl">Our latest customers</h1>
-	<Gallery gap="10" maxColumnWidth="100">
-		<img src="https://placekitten.com/180/200" alt="" />
-		<img src="https://placekitten.com/200/280" alt="" />
-		<img src="https://placekitten.com/250/200" alt="" />
-		<img src="https://placekitten.com/140/310" alt="" />
-		<img src="https://placekitten.com/280/300" alt="" />
-		<img src="https://placekitten.com/280/300" alt="" />
-	</Gallery>
-</section>
+<!-- <section class=" bg-[#161616] py-8 pl-4"> -->
+<!-- 	<h1 class="text-xl">Our latest customers</h1> -->
+<!-- 	<Gallery gap="10" maxColumnWidth="200"> -->
+<!-- 		<img src="https://placekitten.com/180/200" alt="" /> -->
+<!-- 		<img src="https://placekitten.com/200/280" alt="" /> -->
+<!-- 		<img src="https://placekitten.com/250/200" alt="" /> -->
+<!-- 		<img src="https://placekitten.com/140/310" alt="" /> -->
+<!-- 		<img src="https://placekitten.com/280/300" alt="" /> -->
+<!-- 		<img src="https://placekitten.com/280/300" alt="" /> -->
+<!-- 	</Gallery> -->
+<!-- </section> -->
 
 <section id="map">
-	<div class="hero min-h-[80vh] place-items-start bg-contain bg-no-repeat bg-[#161616] bg-bottom">
+	<div
+		class="hero min-h-[80vh] bg-contain bg-right bg-[#0e0e0e] bg-no-repeat bg-blend-multiply md:bg-blend-color-burn"
+		style="background-image: url(paw-patterns.png);"
+	>
 		<!-- <div class="hero-overlay bg-opacity-50" /> -->
 		<div class="hero-content items-center text-neutral-content w-full">
 			<div class="max-w-md">
 				<h1 class="mb-5 text-4xl">Visit Us</h1>
+				<hr class="short-divider" />
 				<p
 					class="mb-5 text-xl max-w-sm text-white"
 					style="text-shadow: 2px 2px 5px #121212"
 					data-aos="fade-in"
 				>
 					{#each locations as location}
-						<div class="prose mb-8">
-							<div>{location.title}</div>
-							<div>
+						<div class="prose mb-12">
+							<strong>{location.title}</strong>
+							<div class="mb-4">
 								{location.address}
 							</div>
 							<a
 								href={`https://api.whatsapp.com/send?phone=${location.whatsapp}&text=`}
-								target="_blank">Book Now</a
+								target="_blank"
+								rel="noreferrer"
 							>
+								<button class="btn-sm btn btn-primary rounded-md"> Book Now</button>
+							</a>
 							<span class="mx-2">|</span>
-							<a href={`${location.tel}`}>
+							<a href={`${location.tel}`} rel="noreferrer">
 								{location.phone}
 							</a>
 							<span class="mx-2">|</span>
-							<a href={location.map}>MAP</a>
+							<a href={location.map} rel="noreferrer">MAP</a>
 						</div>
 					{/each}
 				</p>
 				<div class="max-w-md" data-aos="fade-in">
 					<h1 class="mb-5 text-4xl">Follow Us</h1>
 					<p class="mb-5 text-xl max-w-sm" style="text-shadow: 2px 2px 5px #121212">
-						<a href="http://www.facebook.com/letorogrooming" target="_blank">
+						<a href="http://www.facebook.com/letorogrooming" target="_blank" rel="noreferrer">
 							<div>Facebook</div>
 						</a>
-						<a href="http://www.instagram.com/letorogrooming" target="_blank">
+						<a href="http://www.instagram.com/letorogrooming" target="_blank" rel="noreferrer">
 							<div>Instagram</div>
 						</a>
 					</p>
