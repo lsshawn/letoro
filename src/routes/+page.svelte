@@ -16,7 +16,6 @@
 		'gallery/dog3.jpg',
 		'gallery/dog4.jpg',
 		'gallery/dog5.jpg',
-		'gallery/dog6.jpg',
 		'gallery/small1.jpg',
 		'gallery/small2.jpg',
 		'gallery/small3.jpg',
