@@ -266,7 +266,7 @@
 		class="my-8"
 		options={{
 			rewind: true,
-			fixedHeight: currentBreakpoint === 'sm' ? '200px' : '50vh',
+			fixedHeight: currentBreakpoint === 'sm' ? '200px' : '55vh',
 			autoHeight: true,
 			perPage: 3,
 			type: 'loop'
