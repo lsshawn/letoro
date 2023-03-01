@@ -2,10 +2,30 @@
 	import AOS from 'aos';
 	import Gallery from 'svelte-image-gallery';
 	import { onMount } from 'svelte';
+	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
+	import '@splidejs/svelte-splide/css';
+	import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 
 	onMount(() => {
 		AOS.init();
 	});
+
+	const galleries = [
+		'gallery/dog1.jpg',
+		'gallery/dog2.jpg',
+		'gallery/dog3.jpg',
+		'gallery/dog4.jpg',
+		'gallery/dog5.jpg',
+		'gallery/dog6.jpg',
+		'gallery/small1.jpg',
+		'gallery/small2.jpg',
+		'gallery/small3.jpg',
+		'gallery/cat1.jpg',
+		'gallery/cat2.jpg',
+		'gallery/cat3.jpg',
+		'gallery/cat4.jpg'
+	];
+	const images = galleries.sort(() => Math.random() - 0.5);
 
 	const locations = [
 		{
@@ -33,6 +53,29 @@
 			hours: '10.00AM – 7.00PM'
 		}
 	];
+
+	let currentBreakpoint = '';
+
+	onMount(() => {
+		const handleResize = () => {
+			if (window.innerWidth < 640) {
+				currentBreakpoint = 'sm';
+			} else if (window.innerWidth < 768) {
+				currentBreakpoint = 'md';
+			} else if (window.innerWidth < 1024) {
+				currentBreakpoint = 'lg';
+			} else {
+				currentBreakpoint = 'xl';
+			}
+		};
+
+		handleResize(); // set initial breakpoint
+		window.addEventListener('resize', handleResize);
+
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
+	});
 </script>
 
 <svelte:head>
@@ -215,21 +258,33 @@
 	</div>
 </section>
 
-<!-- <section class=" bg-[#161616] py-8 pl-4"> -->
-<!-- 	<h1 class="text-xl">Our latest customers</h1> -->
-<!-- 	<Gallery gap="10" maxColumnWidth="200"> -->
-<!-- 		<img src="https://placekitten.com/180/200" alt="" /> -->
-<!-- 		<img src="https://placekitten.com/200/280" alt="" /> -->
-<!-- 		<img src="https://placekitten.com/250/200" alt="" /> -->
-<!-- 		<img src="https://placekitten.com/140/310" alt="" /> -->
-<!-- 		<img src="https://placekitten.com/280/300" alt="" /> -->
-<!-- 		<img src="https://placekitten.com/280/300" alt="" /> -->
-<!-- 	</Gallery> -->
-<!-- </section> -->
+<section class=" bg-[#161616] py-8 pl-4">
+	<h1 class="mb-5 font-bold text-4xl text-center" style="text-shadow: 2px 2px 5px #121212">
+		Our Latest Customers
+	</h1>
+	<Splide
+		class="my-8"
+		options={{
+			rewind: true,
+			fixedHeight: currentBreakpoint === 'sm' ? '200px' : '50vh',
+			autoHeight: true,
+			perPage: 3,
+			type: 'loop'
+		}}
+		aria-label="Svelte Splide Example"
+		extensions={{ AutoScroll }}
+	>
+		{#each images as image}
+			<SplideSlide>
+				<img src={image} alt="Gallery" />
+			</SplideSlide>
+		{/each}
+	</Splide>
+</section>
 
 <section id="map">
 	<div
-		class="hero min-h-[80vh] bg-contain bg-right bg-[#0e0e0e] bg-no-repeat bg-blend-multiply md:bg-blend-color-burn"
+		class="hero min-h-[80vh] bg-contain bg-right bg-[#0e0e0e] bg-no-repeat bg-blend-multiply md:bg-blend-color-burn pt-12"
 		style="background-image: url(paw-patterns.png);"
 	>
 		<!-- <div class="hero-overlay bg-opacity-50" /> -->
