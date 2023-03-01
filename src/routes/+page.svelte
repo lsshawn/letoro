@@ -93,7 +93,7 @@
 
 <section id="hero">
 	<div
-		class="hero min-h-[60vh] md:min-h-[90vh] place-items-start bg-bottom bg-[#161516] bg-cover md:bg-contain bg-no-repeat bg-right"
+		class="hero min-h-[70vh] md:min-h-[90vh] place-items-start bg-bottom bg-[#161516] bg-cover md:bg-contain bg-no-repeat bg-right"
 		style="background-image: url(hero-dog.jpg);"
 	>
 		<div class="hero-overlay bg-opacity-80" />
@@ -106,7 +106,7 @@
 					We provide professional grooming service for your pets in a calm environment.
 				</p>
 				<p class="text-2xl mt-8">Grooming | Boarding | Spa | Dental Scaling</p>
-				<div class="dropdown mt-12 w-full sm:w-auto">
+				<div class="dropdown mt-12 w-full sm:w-auto z-50">
 					<label tabindex="0" class="btn btn-primary btn-wide w-full sm:w-auto"
 						>Book via Whatsapp</label
 					>
@@ -128,7 +128,7 @@
 
 <section id="dog">
 	<div
-		class="hero min-h-[40vh] md:min-h-[100vh] bg-left bg-no-repeat"
+		class="hero min-h-[50vh] md:min-h-[100vh] bg-left bg-no-repeat"
 		style="background-image: url(section1-side.jpg);"
 	>
 		<div class="hero-overlay" />
