@@ -94,7 +94,7 @@
 
 <section id="hero">
 	<div
-		class="hero min-h-[60vh] md:min-h-screen place-items-start bg-bottom bg-[#161516] bg-cover md:bg-contain bg-no-repeat bg-right"
+		class="hero min-h-[60vh] md:min-h-[90vh] place-items-start bg-bottom bg-[#161516] bg-cover md:bg-contain bg-no-repeat bg-right"
 		style="background-image: url(hero-dog.jpg);"
 	>
 		<div class="hero-overlay bg-opacity-80" />
