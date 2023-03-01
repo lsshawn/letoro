@@ -1,6 +1,6 @@
 <script lang="ts">
 	import AOS from 'aos';
-	import HorizontalCards from '$lib/components/HorizontalCards.svelte';
+	import Gallery from 'svelte-image-gallery';
 	import { onMount } from 'svelte';
 	const dogImages = [
 		'dogs/dog.jpg',
@@ -50,7 +50,7 @@
 
 <section id="hero">
 	<div
-		class="hero min-h-[80vh] lg:min-h-screen place-items-start bg-bottom"
+		class="hero min-h-[60vh] lg:min-h-screen place-items-start bg-bottom"
 		style="background-image: url(hero-dog.jpg);"
 	>
 		<div class="hero-overlay bg-opacity-80" />
@@ -61,7 +61,7 @@
 					We provide professional grooming service for your pets in a calm environment.
 				</p>
 				<div class="dropdown">
-					<label tabindex="0" class="btn btn-outline btn-base">Book via Whatsapp</label>
+					<label tabindex="0" class="btn btn-primary">Book via Whatsapp</label>
 					<ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
 						{#each locations as location}
 							<li>
@@ -80,7 +80,7 @@
 
 <section id="dog">
 	<div
-		class="hero min-h-[80vh]  bg-[left_-20px] bg-no-repeat"
+		class="hero min-h-[40vh]  bg-left bg-no-repeat"
 		style="background-image: url(section1-side.jpg);"
 	>
 		<div class="hero-overlay" />
@@ -88,6 +88,7 @@
 			<div class="pl-4 pr-0">
 				<div class="max-w-md" data-aos="fade-left">
 					<h1 class="mb-5 text-4xl" style="text-shadow: 2px 2px 5px #121212">Dog Grooming</h1>
+					<hr class="short-divider" />
 					<p class="mb-5 text-xl max-w-sm" style="text-shadow: 2px 2px 5px #121212">
 						Experienced groomers in providing relaxing grooming experienced for canines of all
 						breeds and ages
@@ -100,7 +101,15 @@
 </section>
 
 <section id="about" data-aos="zoom-out">
-	<div class="hero min-h-[30vh] bg-[#161616]">
+	<div
+		class="hero min-h-[30vh] bg-[#161616]"
+		style="background-image: url(paw-patterns.png);
+	background-blend-mode: soft-light;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: right;
+  "
+	>
 		<div class="hero-content">
 			<div class="max-w-xl">
 				<p class="mb-5 text-4xl ">Established in 2010.</p>
@@ -114,15 +123,13 @@
 </section>
 
 <section id="cat">
-	<div
-		class="hero min-h-[80vh] bg-center bg-no-repeat bg-auto"
-		style="background-image: url(cat-black-left.jpg);"
-	>
+	<div class="hero min-h-[40vh]" style="background-image: url(cat-black-left.jpg);">
 		<div class="hero-overlay" />
 		<div class="hero-content items-start text-left text-neutral-content p-0 justify-end w-full">
 			<div class="pl-4 pr-0">
 				<div class="max-w-md" data-aos="fade-left">
 					<h1 class="mb-5 text-4xl" style="text-shadow: 2px 2px 5px #121212">Cat Grooming</h1>
+					<hr class="short-divider" />
 					<p class="mb-5 text-xl max-w-sm" style="text-shadow: 2px 2px 5px #121212">
 						Professional grooming services for felines in low-stress environment.
 					</p>
@@ -135,7 +142,7 @@
 
 <section id="small-animal">
 	<div
-		class="hero min-h-[80vh] bg-[left_-20px]"
+		class="hero min-h-[40vh] bg-[left_-20px]"
 		style="background-image: url(guinea-pig-black.jpg);"
 	>
 		<div class="hero-overlay" />
@@ -143,7 +150,10 @@
 			<div class="pl-4 pr-0">
 				<div class="max-w-md" data-aos="fade-left">
 					<h1 class="mb-5 text-4xl" style="text-shadow: 2px 2px 5px #121212">Small Animal</h1>
-					<p class="mb-5 text-xl">Gentle handling and grooming services for small animals.</p>
+					<hr class="short-divider" />
+					<p class="mb-5 text-xl max-w-sm">
+						Gentle handling and grooming services for small animals.
+					</p>
 					<!-- <HorizontalCards images={dogImages} /> -->
 				</div>
 			</div>
@@ -170,17 +180,19 @@
 
 <section id="shop">
 	<div
-		class="hero min-h-[70vh] place-items-start bg-contain bg-no-repeat bg-[#161616] bg-bottom"
-		style="background-image: url(dog-high-contrast-no-pattern.jpg);"
+		class="hero min-h-[50vh] bg-cover bg-no-repeat bg-[#161616] bg-bottom"
+		style="background-image: url(shopee-products.png);"
 	>
 		<!-- <div class="hero-overlay bg-opacity-50" /> -->
 		<div class="hero-content items-center text-center text-neutral-content w-full">
-			<div class="max-w-md" data-aos="fade-in">
-				<h1 class="mb-5 text-4xl">Visit our Shopee store</h1>
-				<p class="mb-5 text-xl max-w-sm" style="text-shadow: 2px 2px 5px #121212">
-					For premium pet food and accessories
-				</p>
-				<button class="btn btn-base btn-outline">Shop now</button>
+			<div class="max-w-md card" data-aos="fade-in">
+				<div class="card-body bg-neutral/80 rounded-md">
+					<h1 class="mb-5 text-4xl">Visit our Shopee store</h1>
+					<p class="mb-5 text-xl max-w-sm" style="text-shadow: 2px 2px 5px #121212">
+						For premium pet food and accessories
+					</p>
+					<button class="btn btn-primary">Shop now</button>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -188,7 +200,14 @@
 
 <section class=" bg-[#161616] py-8 pl-4">
 	<h1 class="text-xl">Our latest customers</h1>
-	<HorizontalCards images={dogImages} />
+	<Gallery gap="10" maxColumnWidth="100">
+		<img src="https://placekitten.com/180/200" alt="" />
+		<img src="https://placekitten.com/200/280" alt="" />
+		<img src="https://placekitten.com/250/200" alt="" />
+		<img src="https://placekitten.com/140/310" alt="" />
+		<img src="https://placekitten.com/280/300" alt="" />
+		<img src="https://placekitten.com/280/300" alt="" />
+	</Gallery>
 </section>
 
 <section id="map">
@@ -238,3 +257,9 @@
 		</div>
 	</div>
 </section>
+
+<style lang="postcss">
+	.short-divider {
+		@apply mb-4 max-w-[40px] border-t-2 border-solid border-primary;
+	}
+</style>

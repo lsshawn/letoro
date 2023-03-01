@@ -1,12 +1,10 @@
 import { sveltekit } from '@sveltejs/kit/vite';
-import svg from '@poppanator/sveltekit-svg'
+import svg from '@poppanator/sveltekit-svg';
 
 /** @type {import('vite').UserConfig} */
 const config = {
-	plugins: [
-    sveltekit(),
-    svg()
-  ]
+	plugins: [sveltekit(), svg()],
+	ssr: { noExternal: ['svelte-image-gallery'] },
 };
 
 export default config;

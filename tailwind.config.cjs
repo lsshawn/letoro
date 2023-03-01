@@ -14,6 +14,16 @@ const config = {
 	},
 
 	plugins: [forms, typography, daisyui],
+	daisyui: {
+		themes: [
+			{
+				luxury: {
+					...require('daisyui/src/colors/themes')['[data-theme=luxury]'],
+					primary: '#dca54c',
+				},
+			},
+		],
+	},
 };
 
 module.exports = config;
