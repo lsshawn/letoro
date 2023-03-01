@@ -55,6 +55,7 @@
 	];
 
 	let currentBreakpoint = '';
+	let isMobile = false;
 
 	onMount(() => {
 		const handleResize = () => {
@@ -69,6 +70,9 @@
 			}
 		};
 
+		const userAgent = navigator.userAgent;
+		isMobile = /Mobi|Android/i.test(userAgent);
+
 		handleResize(); // set initial breakpoint
 		window.addEventListener('resize', handleResize);
 
@@ -76,6 +80,12 @@
 			window.removeEventListener('resize', handleResize);
 		};
 	});
+
+	function sendWhatsapp(phone: string, text = `I'd like to book`) {
+		const baseUrl = isMobile ? 'whatsapp://send?' : 'https://api.whatsapp.com/send?';
+		const url = `${baseUrl}phone=${phone}&text=${text}`;
+		window.open(url, '_blank');
+	}
 </script>
 
 <svelte:head>
@@ -89,7 +99,7 @@
 	>
 		<div class="hero-overlay bg-opacity-80" />
 		<div
-			class="hero-content items-start md:items-center text-left text-neutral-content pr-0 min-w-full pt-[5rem] md:pt-[30vh] md:pl-[10rem]"
+			class="hero-content items-start md:items-center text-left text-neutral-content min-w-full pt-[5rem] md:pt-[30vh] md:pl-[10rem]"
 		>
 			<div class="w-full pb-4" style="text-shadow: 0 0 20px #000;" data-aos="fade-in">
 				<h1 class="mb-5 text-6xl ">Premium Pet Services</h1>
@@ -97,15 +107,17 @@
 					We provide professional grooming service for your pets in a calm environment.
 				</p>
 				<p class="text-2xl mt-8">Grooming | Boarding | Spa | Dental Scaling</p>
-				<div class="dropdown mt-12">
-					<label tabindex="0" class="btn btn-primary">Book via Whatsapp</label>
+				<div class="dropdown mt-12 w-full sm:w-auto">
+					<label tabindex="0" class="btn btn-primary btn-wide w-full sm:w-auto"
+						>Book via Whatsapp</label
+					>
 					<ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
 						{#each locations as location}
-							<li>
-								<a
-									href={`https://api.whatsapp.com/send?phone=${location.whatsapp}&text=`}
-									target="_blank">{location.title}</a
-								>
+							<li
+								on:click={() => sendWhatsapp(location.whatsapp)}
+								class="py-4 px-2 hover:bg-gray-700"
+							>
+								{location.title}
 							</li>
 						{/each}
 					</ul>
@@ -121,8 +133,8 @@
 		style="background-image: url(section1-side.jpg);"
 	>
 		<div class="hero-overlay" />
-		<div class="hero-content items-start text-left text-neutral-content p-0 justify-end w-full">
-			<div class="pl-4 pr-0">
+		<div class="hero-content items-start text-left text-neutral-content  justify-end w-full">
+			<div class="pl-4">
 				<div class="max-w-md" data-aos="fade-left">
 					<h1 class="mb-5 text-4xl" style="text-shadow: 2px 2px 5px #121212">Dog Grooming</h1>
 					<hr class="short-divider" />
@@ -147,12 +159,8 @@
 	background-position: right;
   "
 	>
-		<div class="hero-content flex flex-col md:flex-row gap-10">
-			<img
-				src="shop.jpg"
-				alt="letoro shop"
-				class="max-w-md shadow-2xl rounded-sm border-4 border-primary"
-			/>
+		<div class="hero-content flex flex-col md:flex-row md:gap-10" data-aos="fade-in">
+			<img src="shop.jpg" alt="letoro shop" class="md:max-w-md shadow-2xl rounded-lg" />
 
 			<div class="max-w-xl text-center md:text-left">
 				<p class="mb-5 text-4xl ">Established in 2010.</p>
@@ -171,8 +179,8 @@
 		style="background-image: url(cat-black-left.jpg);"
 	>
 		<div class="hero-overlay" />
-		<div class="hero-content items-start text-left text-neutral-content p-0 justify-end w-full">
-			<div class="pl-4 pr-0">
+		<div class="hero-content items-start text-left text-neutral-content  justify-end w-full">
+			<div class="pl-4">
 				<div class="max-w-md" data-aos="fade-left">
 					<h1 class="mb-5 text-4xl" style="text-shadow: 2px 2px 5px #121212">Cat Grooming</h1>
 					<hr class="short-divider" />
@@ -192,8 +200,8 @@
 		style="background-image: linear-gradient(to top, rgb(0 0 0) 0%, rgb(0 0 0 / 16%) 50%, rgba(0, 0, 0, 0) 100%), url(guinea-pig-black.jpg)"
 	>
 		<div class="hero-overlay" />
-		<div class="hero-content items-start text-left text-neutral-content p-0 justify-end w-full">
-			<div class="pl-4 pr-0">
+		<div class="hero-content items-start text-left text-neutral-content  justify-end w-full">
+			<div class="pl-4">
 				<div class="max-w-md" data-aos="fade-left">
 					<h1 class="mb-5 text-4xl" style="text-shadow: 2px 2px 5px #121212">Small Animal</h1>
 					<hr class="short-divider" />
@@ -209,7 +217,7 @@
 
 <section id="boarding">
 	<div
-		class="hero min-h-[40vh] md:min-h-[80vh] place-items-start bg-[100px] bg-no-repeat md:bg-contain md:bg-right bg-[#161313] bg-contain"
+		class="hero min-h-[40vh] md:min-h-[80vh] place-items-start bg-[100px] bg-no-repeat md:bg-contain md:bg-right bg-[#161313] bg-cover lg:bg-contain"
 		style="background-image: url(dog-sleep.jpg);"
 	>
 		<div
@@ -221,13 +229,11 @@
 					Our dog daycare and boarding is cage-free. Cat and small animal boarding is available by
 					booking.
 				</p>
-				<div class="relative max-w-sm rounded-lg shadow-2xl hidden md:block">
-					<div
-						class="absolute inset-0"
-						style="background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);"
-					/>
-					<img src="boarding.jpg" alt="cageless boarding" class="w-full" />
-				</div>
+				<img
+					src="boarding.jpg"
+					alt="cageless boarding"
+					class="w-full rounded-lg max-w-md shadow-2xl"
+				/>
 			</div>
 		</div>
 	</div>
@@ -241,7 +247,7 @@
 		<!-- <div class="hero-overlay bg-opacity-50" /> -->
 		<div class="hero-content items-center text-center text-neutral-content w-full">
 			<div class="max-w-md card" data-aos="fade-in">
-				<div class="card-body bg-neutral/90 rounded-md">
+				<div class="card-body bg-neutral/90 rounded-md" data-aos="zoom-in">
 					<h1 class="mb-5 text-4xl">Visit our Shopee store</h1>
 					<p class="mb-5 text-xl max-w-sm" style="text-shadow: 2px 2px 5px #121212">
 						For premium pet food and accessories
@@ -303,13 +309,12 @@
 							<div class="mb-4">
 								{location.address}
 							</div>
-							<a
-								href={`https://api.whatsapp.com/send?phone=${location.whatsapp}&text=`}
-								target="_blank"
-								rel="noreferrer"
+							<button
+								class="btn-sm btn btn-primary rounded-md"
+								on:click={() => sendWhatsapp(location.whatsapp)}
 							>
-								<button class="btn-sm btn btn-primary rounded-md"> Book Now</button>
-							</a>
+								Book Now</button
+							>
 							<span class="mx-2">|</span>
 							<a href={`${location.tel}`} rel="noreferrer">
 								{location.phone}
@@ -319,7 +324,7 @@
 						</div>
 					{/each}
 				</p>
-				<div class="max-w-md" data-aos="fade-in">
+				<div class="max-w-md">
 					<h1 class="mb-5 text-4xl">Follow Us</h1>
 					<p class="mb-5 text-xl max-w-sm" style="text-shadow: 2px 2px 5px #121212">
 						<a href="http://www.facebook.com/letorogrooming" target="_blank" rel="noreferrer">
