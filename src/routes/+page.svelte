@@ -32,29 +32,38 @@
 			address: 'LOT 4211A, TAMAN PAIK SIONG, 7 1/2 MILES, JALAN PUCHONG, 47100 PUCHONG SELANGOR',
 			phone: '603 8080 0507',
 			whatsapp: '60162770507',
-			map: 'https://www.google.com/maps/dir//LeToro+Grooming,+Lot+4211A,+Taman+Paik+Siong,+7+1%2F2+miles,+Jalan+Puchong,+47100+Puchong,+Selangor/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x31cc4b11763505f1:0xa59760f03c65418f?sa=X&ved=2ahUKEwj-woL7_a_oAhW1IbcAHcuiBO0Q48ADMAB6BAgIECk',
+			map: 'https://maps.app.goo.gl/7GxmXV3qH2sVPV188',
 			hours: '10.00AM – 7.00PM'
 		},
 		{
 			title: 'Bandar Puteri Puchong',
 			address: 'NO 72G, JALAN PUTERI 5/5, BANDAR PUTERI PUCHONG, 47100 PUCHONG SELANGOR',
-			map: 'https://www.google.com/maps/dir//Letoro+Grooming+Bandar+Puteri+Puchong,+72G,+Jalan+Puteri+5%2F5,+Bandar+Puteri+Puchong,+47100+Puchong,+Selangor/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x31cdb4a06ce4c4e3:0x17a3ab41774e7cd9?sa=X&ved=2ahUKEwj-woL7_a_oAhW1IbcAHcuiBO0Q48ADMAF6BAgIEDQ',
+			map: 'https://maps.app.goo.gl/GMXFkFp5foHEq7Zx9',
 			phone: '603 8066 2311',
 			whatsapp: '60182202311',
 			hours: '9.00AM – 6.00PM'
 		},
 		{
 			title: 'Happy Garden',
-			map: 'https://www.google.com/maps/dir//Letoro+Grooming+Bandar+Puteri+Puchong,+72G,+Jalan+Puteri+5%2F5,+Bandar+Puteri+Puchong,+47100+Puchong,+Selangor/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x31cdb4a06ce4c4e3:0x17a3ab41774e7cd9?sa=X&ved=2ahUKEwj-woL7_a_oAhW1IbcAHcuiBO0Q48ADMAF6BAgIEDQ',
+			map: 'https://maps.app.goo.gl/R3nvMeN3Z9FxGcdF6',
 			address: 'NO 39, JALAN LAZAT 1, TAMAN GEMBIRA, 58200 PUCHONG SELANGOR',
 			phone: '603 2385 6069',
 			whatsapp: '60186686069',
 			hours: '10.00AM – 7.00PM'
+		},
+		{
+			title: 'Seri Kembangan',
+			address: '21-1, JALAN SIMFONI 1, BALAKONG, 43300 SERI KEMBANGAN, SELANGOR',
+			phone: '+6018-246 2110',
+			whatsapp: '60182462110',
+			map: 'https://maps.app.goo.gl/gsQs248kP4ffEhPX6',
+			hours: '9.00AM – 6.00PM (Closed Tue)'
 		}
 	];
 
 	let currentBreakpoint = '';
 	let isMobile = false;
+	let bookingModalOpen = false;
 
 	onMount(() => {
 		const handleResize = () => {
@@ -101,30 +110,102 @@
 			class="hero-content items-start md:items-center text-left text-neutral-content min-w-full pt-[5rem] md:pt-[30vh] md:pl-[10rem]"
 		>
 			<div class="w-full pb-4" style="text-shadow: 0 0 20px #000;" data-aos="fade-in">
-				<h1 class="mb-5 text-6xl ">Premium Pet Services</h1>
+				<h1 class="mb-5 text-6xl">Premium Pet Services</h1>
 				<p class="mb-5 text-2xl max-w-md" style="text-shadow: 2px 2px 5px #121212">
 					We provide professional grooming service for your pets in a calm environment.
 				</p>
 				<p class="text-2xl mt-8">Grooming | Boarding | Spa | Dental Scaling</p>
-				<div class="dropdown mt-12 w-full sm:w-auto z-50">
-					<label tabindex="0" class="btn btn-primary btn-wide w-full sm:w-auto"
-						>Book via Whatsapp</label
-					>
-					<ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-						{#each locations as location}
-							<li
-								on:click={() => sendWhatsapp(location.whatsapp)}
-								class="py-4 px-2 hover:bg-gray-700"
-							>
-								{location.title}
-							</li>
-						{/each}
-					</ul>
-				</div>
+				<button
+					class="btn btn-primary btn-wide mt-12 w-full sm:w-auto"
+					on:click={() => (bookingModalOpen = true)}
+				>
+					Book via Whatsapp
+				</button>
 			</div>
 		</div>
 	</div>
 </section>
+
+<!-- Booking Modal -->
+{#if bookingModalOpen}
+	<div
+		class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-md"
+		on:click|self={() => (bookingModalOpen = false)}
+		role="dialog"
+		aria-modal="true"
+		aria-label="Select a branch to book"
+	>
+		<div
+			class="w-full max-w-lg rounded-2xl overflow-hidden"
+			style="background: rgba(26,26,26,0.95); backdrop-filter: blur(10px); border: 1px solid rgba(212,175,55,0.2); box-shadow: 0 0 40px rgba(0,0,0,0.5), 0 0 20px rgba(212,175,55,0.1);"
+		>
+			<!-- Header -->
+			<div class="p-8 pb-4 text-center">
+				<h2 class="text-3xl font-serif tracking-wide" style="color: #D4AF37;">Choose a Branch</h2>
+				<div class="h-px w-12 mx-auto mt-4 rounded-full opacity-50" style="background: #D4AF37;" />
+			</div>
+			<!-- Branch list -->
+			<div class="px-8 py-4 space-y-3">
+				{#each locations as location}
+					<button
+						class="branch-card w-full text-left p-5 rounded-xl border border-gray-800 transition-all duration-200 group"
+						on:click={() => {
+							sendWhatsapp(location.whatsapp);
+							bookingModalOpen = false;
+						}}
+					>
+						<div class="flex justify-between items-center">
+							<div>
+								<h3 class="font-semibold text-lg tracking-wide uppercase" style="color: #D4AF37;">
+									{location.title}
+								</h3>
+								{#if location.hours}
+									<div class="flex items-center text-gray-400 text-sm mt-1 gap-1">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="14"
+											height="14"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg
+										>
+										<span>{location.hours}</span>
+									</div>
+								{/if}
+							</div>
+							<svg
+								class="opacity-0 group-hover:opacity-100 transition-opacity"
+								style="color: #D4AF37;"
+								xmlns="http://www.w3.org/2000/svg"
+								width="20"
+								height="20"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"><polyline points="9 18 15 12 9 6" /></svg
+							>
+						</div>
+					</button>
+				{/each}
+			</div>
+			<!-- Cancel -->
+			<div class="p-8 pt-4">
+				<button
+					class="w-full py-4 text-gray-500 hover:text-white transition-colors uppercase tracking-[0.2em] text-xs font-bold"
+					on:click={() => (bookingModalOpen = false)}
+				>
+					Cancel
+				</button>
+			</div>
+		</div>
+	</div>
+{/if}
 
 <section id="dog">
 	<div
@@ -132,7 +213,7 @@
 		style="background-image: url(section1-side.jpg);"
 	>
 		<div class="hero-overlay" />
-		<div class="hero-content items-start text-left text-neutral-content  justify-end w-full">
+		<div class="hero-content items-start text-left text-neutral-content justify-end w-full">
 			<div class="pl-4">
 				<div class="max-w-md" data-aos="fade-left">
 					<h1 class="mb-5 text-4xl" style="text-shadow: 2px 2px 5px #121212">Dog Grooming</h1>
@@ -162,8 +243,8 @@
 			<img src="shop.jpg" alt="letoro shop" class="md:max-w-md shadow-2xl rounded-lg" />
 
 			<div class="max-w-xl text-center md:text-left">
-				<p class="mb-5 text-4xl ">Established in 2010.</p>
-				<p class="mb-5 text-xl ">
+				<p class="mb-5 text-4xl">Established in 2010.</p>
+				<p class="mb-5 text-xl">
 					Expert groomer with over a decade of experience. We only use high quality products. We
 					work on an appointment only basis. This keeps the salon as stress free as possible.
 				</p>
@@ -178,7 +259,7 @@
 		style="background-image: url(cat-black-left.jpg);"
 	>
 		<div class="hero-overlay" />
-		<div class="hero-content items-start text-left text-neutral-content  justify-end w-full">
+		<div class="hero-content items-start text-left text-neutral-content justify-end w-full">
 			<div class="pl-4">
 				<div class="max-w-md" data-aos="fade-left">
 					<h1 class="mb-5 text-4xl" style="text-shadow: 2px 2px 5px #121212">Cat Grooming</h1>
@@ -199,7 +280,7 @@
 		style="background-image: linear-gradient(to top, rgb(0 0 0) 0%, rgb(0 0 0 / 16%) 50%, rgba(0, 0, 0, 0) 100%), url(guinea-pig-black.jpg)"
 	>
 		<div class="hero-overlay" />
-		<div class="hero-content items-start text-left text-neutral-content  justify-end w-full">
+		<div class="hero-content items-start text-left text-neutral-content justify-end w-full">
 			<div class="pl-4">
 				<div class="max-w-md" data-aos="fade-left">
 					<h1 class="mb-5 text-4xl" style="text-shadow: 2px 2px 5px #121212">Small Animal</h1>
@@ -315,7 +396,7 @@
 								Book Now</button
 							>
 							<span class="mx-2">|</span>
-							<a href={`${location.tel}`} rel="noreferrer">
+							<a href={`tel:${location.phone}`} rel="noreferrer">
 								{location.phone}
 							</a>
 							<span class="mx-2">|</span>
@@ -325,17 +406,62 @@
 				</p>
 				<div class="max-w-md">
 					<h1 class="mb-5 text-4xl">Follow Us</h1>
-					<p class="mb-5 text-xl max-w-sm" style="text-shadow: 2px 2px 5px #121212">
-						<a href="http://www.facebook.com/letorogrooming" target="_blank" rel="noreferrer">
-							<div>Facebook</div>
+					<div class="flex gap-5 mb-5">
+						<a
+							href="https://www.tiktok.com/@letorogrooming?_r=1&_t=ZS-946E2oM0whZ"
+							target="_blank"
+							rel="noreferrer"
+							aria-label="TikTok"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="28"
+								height="28"
+								viewBox="0 0 24 24"
+								fill="currentColor"
+								><path
+									d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"
+								/></svg
+							>
 						</a>
-						<a href="http://www.instagram.com/letorogrooming" target="_blank" rel="noreferrer">
-							<div>Instagram</div>
+						<a
+							href="http://www.facebook.com/letorogrooming"
+							target="_blank"
+							rel="noreferrer"
+							aria-label="Facebook"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="28"
+								height="28"
+								viewBox="0 0 24 24"
+								fill="currentColor"
+								><path
+									d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+								/></svg
+							>
 						</a>
-					</p>
+						<a
+							href="http://www.instagram.com/letorogrooming"
+							target="_blank"
+							rel="noreferrer"
+							aria-label="Instagram"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="28"
+								height="28"
+								viewBox="0 0 24 24"
+								fill="currentColor"
+								><path
+									d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"
+								/></svg
+							>
+						</a>
+					</div>
 				</div>
 				<div class="divider" />
-				<div>© 2023 Letoro Grooming</div>
+				<div>© {new Date().getFullYear()} Letoro Grooming</div>
 			</div>
 		</div>
 	</div>
@@ -344,5 +470,11 @@
 <style lang="postcss">
 	.short-divider {
 		@apply mb-4 max-w-[40px] border-t-2 border-solid border-primary;
+	}
+
+	.branch-card:hover {
+		border-color: #d4af37;
+		background: rgba(212, 175, 55, 0.05);
+		transform: translateY(-1px);
 	}
 </style>
