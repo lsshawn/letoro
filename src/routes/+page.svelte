@@ -161,35 +161,24 @@
 								</h3>
 								{#if location.hours}
 									<div class="flex items-center text-gray-400 text-sm mt-1 gap-1">
-										<svg
-											xmlns="http://www.w3.org/2000/svg"
-											width="14"
-											height="14"
-											viewBox="0 0 24 24"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg
-										>
+										<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
 										<span>{location.hours}</span>
 									</div>
 								{/if}
 							</div>
-							<svg
-								class="opacity-0 group-hover:opacity-100 transition-opacity"
-								style="color: #D4AF37;"
-								xmlns="http://www.w3.org/2000/svg"
-								width="20"
-								height="20"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2"
-								stroke-linecap="round"
-								stroke-linejoin="round"><polyline points="9 18 15 12 9 6" /></svg
-							>
+							<div class="flex items-center gap-3">
+								<a
+									href={location.map}
+									target="_blank"
+									rel="noreferrer"
+									aria-label="View on Google Maps"
+									on:click|stopPropagation
+									class="text-gray-500 hover:text-[#D4AF37] transition-colors"
+								>
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+								</a>
+								<svg class="opacity-0 group-hover:opacity-100 transition-opacity" style="color: #D4AF37;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+							</div>
 						</div>
 					</button>
 				{/each}
