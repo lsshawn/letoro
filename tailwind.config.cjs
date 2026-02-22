@@ -7,10 +7,16 @@ const config = {
 
 	theme: {
 		extend: {
-			fontFamily: {
-				sans: ['Arial'],
+			colors: {
+				'background-light': '#121212',
+				'background-dark': '#0A0A0A'
 			},
-		},
+			fontFamily: {
+				display: ['Playfair Display', 'serif'],
+				body: ['Josefin Sans', 'sans-serif'],
+				sans: ['Josefin Sans', 'sans-serif']
+			}
+		}
 	},
 
 	plugins: [forms, typography, daisyui],
@@ -19,11 +25,11 @@ const config = {
 			{
 				luxury: {
 					...require('daisyui/src/colors/themes')['[data-theme=luxury]'],
-					primary: '#dca54c',
-				},
-			},
-		],
-	},
+					primary: '#D4AF37'
+				}
+			}
+		]
+	}
 };
 
 module.exports = config;

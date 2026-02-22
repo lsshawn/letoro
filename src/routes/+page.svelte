@@ -29,7 +29,7 @@
 	const locations = [
 		{
 			title: 'HQ (Jalan Puchong)',
-			address: 'LOT 4211A, TAMAN PAIK SIONG, 7 1/2 MILES, JALAN PUCHONG, 47100 PUCHONG SELANGOR',
+			address: 'Lot 4211A, Taman Paik Siong, 7 1/2 Miles, Jalan Puchong, 47100 Puchong, Selangor',
 			phone: '603 8080 0507',
 			whatsapp: '60162770507',
 			map: 'https://maps.app.goo.gl/7GxmXV3qH2sVPV188',
@@ -37,7 +37,7 @@
 		},
 		{
 			title: 'Bandar Puteri Puchong',
-			address: 'NO 72G, JALAN PUTERI 5/5, BANDAR PUTERI PUCHONG, 47100 PUCHONG SELANGOR',
+			address: 'No 72G, Jalan Puteri 5/5, Bandar Puteri Puchong, 47100 Puchong, Selangor',
 			map: 'https://maps.app.goo.gl/GMXFkFp5foHEq7Zx9',
 			phone: '603 8066 2311',
 			whatsapp: '60182202311',
@@ -46,14 +46,14 @@
 		{
 			title: 'Happy Garden',
 			map: 'https://maps.app.goo.gl/R3nvMeN3Z9FxGcdF6',
-			address: 'NO 39, JALAN LAZAT 1, TAMAN GEMBIRA, 58200 PUCHONG SELANGOR',
+			address: 'No 39, Jalan Lazat 1, Taman Gembira, 58200 Kuala Lumpur',
 			phone: '603 2385 6069',
 			whatsapp: '60186686069',
 			hours: '10.00AM – 7.00PM'
 		},
 		{
 			title: 'Seri Kembangan',
-			address: '21-1, JALAN SIMFONI 1, BALAKONG, 43300 SERI KEMBANGAN, SELANGOR',
+			address: '21-1, Jalan Simfoni 1, Balakong, 43300 Seri Kembangan, Selangor',
 			phone: '+6018-246 2110',
 			whatsapp: '60182462110',
 			map: 'https://maps.app.goo.gl/gsQs248kP4ffEhPX6',
@@ -107,7 +107,7 @@
 	>
 		<div class="hero-overlay bg-opacity-80" />
 		<div
-			class="hero-content items-start md:items-center text-left text-neutral-content min-w-full pt-[5rem] md:pt-[30vh] md:pl-[10rem]"
+			class="hero-content items-start md:items-center text-left text-primary min-w-full pt-[5rem] md:pt-[30vh] md:pl-[10rem]"
 		>
 			<div class="w-full pb-4" style="text-shadow: 0 0 20px #000;" data-aos="fade-in">
 				<h1 class="mb-5 text-6xl">Premium Pet Services</h1>
@@ -161,7 +161,18 @@
 								</h3>
 								{#if location.hours}
 									<div class="flex items-center text-gray-400 text-sm mt-1 gap-1">
-										<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											width="14"
+											height="14"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg
+										>
 										<span>{location.hours}</span>
 									</div>
 								{/if}
@@ -175,9 +186,34 @@
 									on:click|stopPropagation
 									class="text-gray-500 hover:text-[#D4AF37] transition-colors"
 								>
-									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="20"
+										height="20"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										><circle cx="12" cy="12" r="10" /><line x1="2" y1="12" x2="22" y2="12" /><path
+											d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+										/></svg
+									>
 								</a>
-								<svg class="opacity-0 group-hover:opacity-100 transition-opacity" style="color: #D4AF37;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+								<svg
+									class="opacity-0 group-hover:opacity-100 transition-opacity"
+									style="color: #D4AF37;"
+									xmlns="http://www.w3.org/2000/svg"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"><polyline points="9 18 15 12 9 6" /></svg
+								>
 							</div>
 						</div>
 					</button>
@@ -202,7 +238,7 @@
 		style="background-image: url(section1-side.jpg);"
 	>
 		<div class="hero-overlay" />
-		<div class="hero-content items-start text-left text-neutral-content justify-end w-full">
+		<div class="hero-content items-start text-left text-primary justify-end w-full">
 			<div class="pl-4">
 				<div class="max-w-md" data-aos="fade-left">
 					<h1 class="mb-5 text-4xl" style="text-shadow: 2px 2px 5px #121212">Dog Grooming</h1>
@@ -248,7 +284,7 @@
 		style="background-image: url(cat-black-left.jpg);"
 	>
 		<div class="hero-overlay" />
-		<div class="hero-content items-start text-left text-neutral-content justify-end w-full">
+		<div class="hero-content items-start text-left text-primary justify-end w-full">
 			<div class="pl-4">
 				<div class="max-w-md" data-aos="fade-left">
 					<h1 class="mb-5 text-4xl" style="text-shadow: 2px 2px 5px #121212">Cat Grooming</h1>
@@ -269,7 +305,7 @@
 		style="background-image: linear-gradient(to top, rgb(0 0 0) 0%, rgb(0 0 0 / 16%) 50%, rgba(0, 0, 0, 0) 100%), url(guinea-pig-black.jpg)"
 	>
 		<div class="hero-overlay" />
-		<div class="hero-content items-start text-left text-neutral-content justify-end w-full">
+		<div class="hero-content items-start text-left text-primary justify-end w-full">
 			<div class="pl-4">
 				<div class="max-w-md" data-aos="fade-left">
 					<h1 class="mb-5 text-4xl" style="text-shadow: 2px 2px 5px #121212">Small Animal</h1>
@@ -289,9 +325,7 @@
 		class="hero min-h-[40vh] md:min-h-[80vh] place-items-start bg-[100px] bg-no-repeat md:bg-contain md:bg-right bg-[#161313] bg-cover lg:bg-contain"
 		style="background-image: url(dog-sleep.jpg);"
 	>
-		<div
-			class="hero-content items-start text-left text-neutral-content pt-8 md:pt-[10vh] md:pl-[10rem]"
-		>
+		<div class="hero-content items-start text-left text-primary pt-8 md:pt-[10vh] md:pl-[10rem]">
 			<div class="max-w-md" data-aos="fade-right" data-aos-duration="700">
 				<h1 class="mb-5 text-4xl" style="text-shadow: 2px 2px 5px #121212">Cageless Pet Hotel</h1>
 				<p class="mb-5 text-xl max-w-sm" style="text-shadow: 2px 2px 5px #121212">
@@ -314,7 +348,7 @@
 		style="background-image: url(shopee-products.png);"
 	>
 		<!-- <div class="hero-overlay bg-opacity-50" /> -->
-		<div class="hero-content items-center text-center text-neutral-content w-full">
+		<div class="hero-content items-center text-center text-primary w-full">
 			<div class="max-w-md card" data-aos="fade-in">
 				<div class="card-body bg-neutral/90 rounded-md" data-aos="zoom-in">
 					<h1 class="mb-5 text-4xl">Visit our Shopee store</h1>
@@ -363,7 +397,7 @@
 		style="background-image: url(paw-patterns.png);"
 	>
 		<!-- <div class="hero-overlay bg-opacity-50" /> -->
-		<div class="hero-content items-center text-neutral-content w-full">
+		<div class="hero-content items-center text-primary w-full">
 			<div class="max-w-md">
 				<h1 class="mb-5 text-4xl">Visit Us</h1>
 				<hr class="short-divider" />
