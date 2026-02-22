@@ -90,8 +90,7 @@
 	});
 
 	function sendWhatsapp(phone: string, text = `I'd like to book`) {
-		const baseUrl = isMobile ? 'whatsapp://send?' : 'https://api.whatsapp.com/send?';
-		const url = `${baseUrl}phone=${phone}&text=${text}`;
+		const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
 		window.open(url, '_blank');
 	}
 </script>
@@ -129,26 +128,26 @@
 <!-- Booking Modal -->
 {#if bookingModalOpen}
 	<div
-		class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-md"
+		class="fixed inset-0 z-[100] flex items-center justify-center px-4 py-6 bg-black/60 backdrop-blur-md"
 		on:click|self={() => (bookingModalOpen = false)}
 		role="dialog"
 		aria-modal="true"
 		aria-label="Select a branch to book"
 	>
 		<div
-			class="w-full max-w-lg rounded-2xl overflow-hidden"
+			class="w-full max-w-lg rounded-2xl overflow-hidden max-h-full flex flex-col min-w-0"
 			style="background: rgba(26,26,26,0.95); backdrop-filter: blur(10px); border: 1px solid rgba(212,175,55,0.2); box-shadow: 0 0 40px rgba(0,0,0,0.5), 0 0 20px rgba(212,175,55,0.1);"
 		>
 			<!-- Header -->
-			<div class="p-8 pb-4 text-center">
-				<h2 class="text-3xl font-serif tracking-wide" style="color: #D4AF37;">Choose a Branch</h2>
-				<div class="h-px w-12 mx-auto mt-4 rounded-full opacity-50" style="background: #D4AF37;" />
+			<div class="p-5 pb-3 text-center shrink-0">
+				<h2 class="text-2xl font-serif tracking-wide" style="color: #D4AF37;">Choose a Branch</h2>
+				<div class="h-px w-12 mx-auto mt-3 rounded-full opacity-50" style="background: #D4AF37;" />
 			</div>
 			<!-- Branch list -->
-			<div class="px-8 py-4 space-y-3">
+			<div class="px-4 py-2 space-y-2 overflow-y-auto">
 				{#each locations as location}
 					<button
-						class="branch-card w-full text-left p-5 rounded-xl border border-gray-800 transition-all duration-200 group"
+						class="branch-card w-full text-left p-3 rounded-xl border border-gray-800 transition-all duration-200 group"
 						on:click={() => {
 							sendWhatsapp(location.whatsapp);
 							bookingModalOpen = false;
@@ -156,7 +155,7 @@
 					>
 						<div class="flex justify-between items-center">
 							<div>
-								<h3 class="font-semibold text-lg tracking-wide uppercase" style="color: #D4AF37;">
+								<h3 class="font-semibold text-base tracking-wide uppercase break-words" style="color: #D4AF37;">
 									{location.title}
 								</h3>
 								{#if location.hours}
@@ -177,7 +176,7 @@
 									</div>
 								{/if}
 							</div>
-							<div class="flex items-center gap-3">
+							<div class="flex items-center gap-3 ml-auto shrink-0 pl-2">
 								<a
 									href={location.map}
 									target="_blank"
@@ -220,7 +219,7 @@
 				{/each}
 			</div>
 			<!-- Cancel -->
-			<div class="p-8 pt-4">
+			<div class="px-4 py-3 shrink-0">
 				<button
 					class="w-full py-4 text-gray-500 hover:text-white transition-colors uppercase tracking-[0.2em] text-xs font-bold"
 					on:click={() => (bookingModalOpen = false)}
